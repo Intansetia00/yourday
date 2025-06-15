@@ -1,0 +1,129 @@
+/* Umum */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #fce3ec, #be8cb8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+  transition: opacity 0.8s ease;
+}
+
+.fade-out {
+  opacity: 0;
+}
+
+/* Halaman pembuka */
+.intro-container {
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.93);
+  padding: 40px 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1.2s ease;
+  max-width: 90%;
+  width: 400px;
+  box-sizing: border-box;
+}
+
+.emoji {
+  width: 140px;
+  max-width: 100%;
+  margin-bottom: 15px;
+  animation: float 2s infinite ease-in-out;
+}
+
+h1 {
+  font-size: 26px;
+  margin-bottom: 12px;
+  color: #2d3436;
+}
+
+.subtitle {
+  color: #636e72;
+  font-size: 16px;
+  margin-bottom: 25px;
+}
+
+button {
+  background-color: #be8cb8;
+  border: none;
+  padding: 12px 28px;
+  color: white;
+  font-size: 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #ac1b98;
+  transform: scale(1.05);
+}
+
+/* Halaman utama / selanjutnya */
+.main-container {
+  text-align: center;
+  padding: 35px 25px;
+  max-width: 600px;
+  background-color: #fffefc;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  animation: fadeIn 1.2s ease;
+  box-sizing: border-box;
+}
+
+.cake,
+.emoji {
+  width: 140px;
+  max-width: 100%;
+  margin-bottom: 20px;
+  animation: float 3s ease-in-out infinite;
+}
+
+.birthday-text {
+  font-size: 26px;
+  color: #2d3436;
+  margin-bottom: 12px;
+}
+
+.message {
+  color: #636e72;
+  font-size: 16px;
+  line-height: 1.6;
+  margin-top: 10px;
+}
+
+/* Animasi */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+.footer {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #888;
+  margin-top: 50px;
+  padding-bottom: 20px;
+  font-style: italic;
+}

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>b'day (+1)</title>
+  <link rel="stylesheet" href="bday.css" />
+  <style>
+    .page {
+      display: none;
+      opacity: 0;
+      transition: opacity 0.8s ease;
+    }
+    .page.active {
+      display: block;
+      opacity: 1;
+    }
+    body.fade-out .page.active {
+      opacity: 0;
+    }
+
+    /* Footer styling */
+    .footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #888;
+      padding: 15px 0;
+      font-style: italic;
+      background: transparent;
+    }
+
+    /* Biar footer di bawah meski konten sedikit */
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    .main-container, .intro-container {
+      flex: 1;
+    }
+  </style>
+</head>
+<body>
+  <!-- Musik Otomatis -->
+  <audio id="bg-music" autoplay loop muted>
+    <source src="assets/lagu.mp3" type="audio/mpeg">
+    Browser kamu tidak mendukung pemutar audio.
+  </audio>
+
+  <!-- HALAMAN 1 -->
+  <div class="page active" id="page1">
+    <div class="intro-container">
+      <div class="box">
+        <img src="assets/balon2.png" class="emoji" alt="Boy with party hat" />
+        <h1>Hai Masss!</h1>
+        <p class="subtitle">Let's see what I made just for you 💌</p>
+        <button onclick="goToPage(2)">Click Me</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- HALAMAN 2 -->
+  <div class="page" id="page2">
+    <div class="main-container">
+      <img src="assets/uhuy1.png" class="cake" alt="Kue Ulang Tahun" />
+      <h1 class="birthday-text">HAPPY BIRTHDAY MY FAVORITE PERSON</h1>
+      <p class="message">Gak butuh banyak kata sih… Yang penting: semoga kamu selalu nemu hal-hal kecil yang bikin kamu senyum tiap hari. And I’m grateful karena salah satu hal kecil itu — adalah aku. 😌🎈</p>
+      <button onclick="goToPage(3)">Let's See!</button>
+    </div>
+  </div>
+
+  <!-- HALAMAN 3 -->
+  <div class="page" id="page3">
+    <div class="main-container">
+      <img src="assets/uhuy1.png" alt="Love Balloon" class="emoji" />
+      <h2 class="birthday-text">Tahun ke-26 bukan tentang jadi sempurna. Tapi tentang jadi versi paling jujur dari diri sendiri.</h2>
+      <p class="message">Intinya Happy birthday! Semoga semua yang mas perjuangin pelan-pelan nemu jalannya. Mas pantes dapet yang terbaik — dari semesta, dan juga dari diri mas sendiri, hidup lebih lama mas!.💖</p>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>&copy; 2025 by @tnstiash.</p>
+  </footer>
+
+  <!-- SCRIPT -->
+  <script src="confetti.js"></script>
+  <script>
+    // Fungsi pindah halaman
+    function goToPage(pageNumber) {
+      document.body.classList.add('fade-out');
+      setTimeout(() => {
+        const pages = document.querySelectorAll('.page');
+        pages.forEach(p => p.classList.remove('active'));
+        document.getElementById('page' + pageNumber).classList.add('active');
+        document.body.classList.remove('fade-out');
+
+        // Confetti hanya di halaman 2
+        if (pageNumber === 2) {
+          confetti.start();
+        } else {
+          confetti.stop();
+        }
+      }, 800);
+    }
+
+    // Musik aktif setelah klik pertama
+    window.addEventListener('click', () => {
+      const audio = document.getElementById('bg-music');
+      audio.muted = false;
+      audio.play();
+    }, { once: true });
+  </script>
+</body>
+</html>
